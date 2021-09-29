@@ -1,8 +1,8 @@
-class Node {
-    private number id;
-    LinkedLi
-}
+// class Node {
+//     private number id;
+//     LinkedLi
+// }
 
-class Graph {
-    private nodeLookup:Map<number,Node>
-}
+// class Graph {
+//     private nodeLookup:Map<number,Node>
+// }
