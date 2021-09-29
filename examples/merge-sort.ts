@@ -1,32 +1,43 @@
-const numbers = [2, 8, 5, 3, 9, 4, 1, 7, 6, 7];
+const numbers = [10, 6, 8, 5, 7, 3, 4, 7, 4, 43, 32, 41, 4, 1, 455, 43];
 
-const mergeSort = (
-  arr: number[],
-  temp: number[],
-  start: number,
-  end: number
-) => {
-  // 시작이 끝보다 작은동안만 재귀호출을 시행함
-  if (start < end) {
-    const mid = (start + end) / 2;
-    mergeSort(arr, temp, start, mid);
-    mergeSort(arr, temp, mid + 1, end);
-    merge(arr, temp, start, mid, end);
-  }
+const mergeSort = (a: number[], n: number) => {
+  // 1이하로 쪼개어졌으면 호출 중단
+  if (n < 2) return;
+  const mid = Math.ceil(n / 2);
+  const l = a.slice(0, mid);
+  const r = a.slice(mid, n);
+  mergeSort(l, mid);
+  mergeSort(r, n - mid);
+
+  merge(a, l, r, mid, n - mid);
 };
 
 const merge = (
-  arr: number[],
-  temp: number[],
-  start: number,
-  mid: number,
-  end: number
+  a: number[],
+  l: number[],
+  r: number[],
+  left: number,
+  right: number
 ) => {
-  temp = [...arr];
-  let part1 = start;
-  let part2 = mid + 1;
-  let index = start;
+  let i = 0,
+    j = 0,
+    k = 0;
+
+  while (i < left && j < right) {
+    if (l[i] <= r[j]) {
+      a[k++] = l[i++];
+    } else {
+      a[k++] = r[j++];
+    }
+  }
+
+  while (i < left) {
+    a[k++] = l[i++];
+  }
+
+  while (j < right) {
+    a[k++] = r[j++];
+  }
 };
 
-const temp: number[] = [];
-mergeSort(numbers, temp, 0, numbers.length - 1);
+mergeSort(numbers, numbers.length);
