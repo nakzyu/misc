@@ -11,7 +11,7 @@ function trap(height: number[]): number {
         //index of item => element의 index. height[index] => 해당 item의 높이
         // 구조물이 존재하면 채우고
         if (height[index] >= currnetHeight) return 0;
-        // 구조물이 존재하지 않으면 아이템을 그대로 return함 (이미 0으로 채워져있음)
+        // 구조물이 존재하지 않으면 아이템을 그대로 return함 (이미 1으로 채워져있음)
         return item;
       });
     });
