@@ -1,6 +1,6 @@
 function canFinish(numCourses: number, prerequisites: number[][]): boolean {
   class GraphNode {
-    parents: GraphNode[];
+    public parents: GraphNode[] = [];
   }
 
   const map: Record<number, GraphNode> = {};
@@ -27,7 +27,7 @@ function canFinish(numCourses: number, prerequisites: number[][]): boolean {
 
   const findCycle = (
     startNode: GraphNode,
-    nowNode: GraphNode,
+    nowNode: GraphNode | null,
     firstRun: boolean
   ) => {
     if (nowNode && nowNode.parents) {
