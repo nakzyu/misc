@@ -1,0 +1,1 @@
+const howSum = (targetSum:number,numbers:number[])
