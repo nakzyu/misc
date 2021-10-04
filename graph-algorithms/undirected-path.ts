@@ -27,21 +27,24 @@ const buildGraph = (edges: string[][]): Record<string, string[]> => {
 const hasPath = (
   graph: Record<string, string[]>,
   src: string,
-  dst: string
+  dst: string,
+  visited: Set<string>
 ): boolean => {
+  if (visited.has(src)) return false;
   if (src === dst) return true;
 
+  visited.add(src);
+
   for (const neighbor of graph[src]) {
-    if (hasPath(graph, neighbor, dst) === true) {
+    if (hasPath(graph, neighbor, dst, visited) === true) {
       return true;
     }
   }
+
   return false;
 };
 
 const undirectedPath = (edges: string[][], nodeA: string, nodeB: string) => {
   const graph = buildGraph(edges);
-  return hasPath(graph, nodeA, nodeB);
+  return hasPath(graph, nodeA, nodeB, new Set());
 };
-
-// const undirectedPath = (edges: string[][], nodeA, nodeB): boolean => {};
