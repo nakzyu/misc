@@ -8,7 +8,6 @@ const mergeSort = (a: number[], n: number) => {
   const r = a.slice(mid, n);
   mergeSort(l, mid);
   mergeSort(r, n - mid);
-
   merge(a, l, r, mid, n - mid);
 };
 
