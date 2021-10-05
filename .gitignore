@@ -76,3 +76,4 @@ typings/
 .fusebox/
 
 examples/**/*.js
+solution/leetCode/*.js
