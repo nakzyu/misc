@@ -16,6 +16,7 @@ class HashTable<T> {
 
   public set(key: string, value: T): void {
     this.bins[this.hash(key)] = value;
+    // 충돌하면???
   }
 
   public get(key: string): T {
