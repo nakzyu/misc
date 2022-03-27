@@ -1,8 +1,6 @@
-const numbers = [3, 7, 8, 5, 2, 1, 9, 5, 4];
-
 // not-in-Place
 // 중복값의 위치가 바뀌지 않지만 메모리 낭비가 존재함
-const quickSortA = (array: number[]) => {
+const quickSortA = (array: number[]): number[] => {
   console.log(array);
   if (array.length < 2) return array;
   const pivotIndex = array.length - 1;
